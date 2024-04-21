@@ -1,0 +1,28 @@
+{
+  "Routes": [
+    {
+      //http://192.168.1.2:7000/gateway/api/order/creat 在网关方式访问地址
+      //http://192.168.1.2:8000/api/order/creat 转化为访问地址
+      "UpstreamPathTemplate": "/{url}", //网关地址 --url
+      "UpstreamHttpMethod": [ "get", "post" ],
+      //上游访问地址
+      //------------------------------------------------------------
+      //下游访问地址
+      "DownstreamPathTemplate": "/{url}", //服务地址 --url
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true, //通过consul 自动发现
+      "ServiceName": "userService",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询   LeastConnection-最少连接数量的服务器
+      } 
+    }
+  ],
+  //自动发现Consul 参数配置
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "192.168.1.2",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}

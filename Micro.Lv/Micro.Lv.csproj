@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>00416bbb-6f1d-4117-a88b-be3005240e8d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Consul" Version="1.7.14.3" />
+    <PackageReference Include="DotNetCore.CAP" Version="8.1.0" />
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="8.1.0" />
+    <PackageReference Include="DotNetCore.CAP.SqlServer" Version="8.1.0" />
+    <PackageReference Include="log4net" Version="2.0.17" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Micro.Comm\Micro.Comm.csproj" />
+    <ProjectReference Include="..\Micro.Models\Micro.Models.csproj" />
+  </ItemGroup>
+
+</Project>
