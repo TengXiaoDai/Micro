@@ -7,5 +7,6 @@
         public string UserPwd { get; set; }
         public string Name { get; set; }
         public bool Sex { get; set; }
+        public int Lv { get; set; }
     }
 }

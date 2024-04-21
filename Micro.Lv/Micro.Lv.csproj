@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Micro.Comm\Micro.Comm.csproj" />
     <ProjectReference Include="..\Micro.Models\Micro.Models.csproj" />
+    <ProjectReference Include="..\Micro.Respository\Micro.Respository.csproj" />
   </ItemGroup>
 
 </Project>
