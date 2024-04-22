@@ -27,15 +27,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Respository", "Respository"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micro.Lv", "Micro.Lv\Micro.Lv.csproj", "{F3452D37-3E89-4BA3-AF2E-157002EB2373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Redis", "Micro.Redis\Micro.Redis.csproj", "{DBFC95E1-B4FD-41B2-AAF5-635DBCBA3AC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micro.Redis", "Micro.Redis\Micro.Redis.csproj", "{DBFC95E1-B4FD-41B2-AAF5-635DBCBA3AC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.gRpc", "Micro.gRpc\Micro.gRpc.csproj", "{D0989790-1441-4D35-A91C-643EEDF2B059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micro.gRpc", "Micro.gRpc\Micro.gRpc.csproj", "{D0989790-1441-4D35-A91C-643EEDF2B059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.gRpc.Client", "Micro.gRpc.Client\Micro.gRpc.Client.csproj", "{A32AC7D2-A5AB-475D-9855-793FE846D4F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micro.gRpc.Client", "Micro.gRpc.Client\Micro.gRpc.Client.csproj", "{A32AC7D2-A5AB-475D-9855-793FE846D4F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Skywalking", "Micro.Skywalking\Micro.Skywalking.csproj", "{608EDB33-9322-4070-B56D-7E8DB1C7BB3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micro.Skywalking", "Micro.Skywalking\Micro.Skywalking.csproj", "{608EDB33-9322-4070-B56D-7E8DB1C7BB3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.ELK", "Micro.ELK\Micro.ELK.csproj", "{905C8418-AFFB-49A9-BE4A-C1365399A903}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micro.ELK", "Micro.ELK\Micro.ELK.csproj", "{905C8418-AFFB-49A9-BE4A-C1365399A903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Order", "Micro.Order\Micro.Order.csproj", "{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{905C8418-AFFB-49A9-BE4A-C1365399A903}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{905C8418-AFFB-49A9-BE4A-C1365399A903}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{905C8418-AFFB-49A9-BE4A-C1365399A903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +119,7 @@ Global
 		{A32AC7D2-A5AB-475D-9855-793FE846D4F7} = {5D01A368-D8FD-4B95-BEF4-35A2895EB66D}
 		{608EDB33-9322-4070-B56D-7E8DB1C7BB3F} = {5D01A368-D8FD-4B95-BEF4-35A2895EB66D}
 		{905C8418-AFFB-49A9-BE4A-C1365399A903} = {5D01A368-D8FD-4B95-BEF4-35A2895EB66D}
+		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1} = {78ECDAFC-1AB6-4620-B01A-A76FC68695C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84EDF8D5-F532-48DA-96CF-B0539DEAA33D}
