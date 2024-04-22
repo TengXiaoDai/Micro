@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen();
 
+builder.Configuration.AddApollo();// ÐÂÔöApollo
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<MicroContext>(options =>

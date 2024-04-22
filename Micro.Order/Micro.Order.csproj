@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Com.Ctrip.Framework.Apollo" Version="2.10.0" />
+    <PackageReference Include="Com.Ctrip.Framework.Apollo.Configuration" Version="2.10.2" />
     <PackageReference Include="log4net" Version="2.0.17" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
