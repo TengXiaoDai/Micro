@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Micro.ELK", "Micro.ELK\Micr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Order", "Micro.Order\Micro.Order.csproj", "{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Apollo", "Micro.Apollo\Micro.Apollo.csproj", "{9892ADE1-AC88-4CBF-A0B0-7DFCCE722EB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9892ADE1-AC88-4CBF-A0B0-7DFCCE722EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9892ADE1-AC88-4CBF-A0B0-7DFCCE722EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9892ADE1-AC88-4CBF-A0B0-7DFCCE722EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9892ADE1-AC88-4CBF-A0B0-7DFCCE722EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{608EDB33-9322-4070-B56D-7E8DB1C7BB3F} = {5D01A368-D8FD-4B95-BEF4-35A2895EB66D}
 		{905C8418-AFFB-49A9-BE4A-C1365399A903} = {5D01A368-D8FD-4B95-BEF4-35A2895EB66D}
 		{A8C5DB87-D2E8-43CD-BDE0-0FFEA110F1D1} = {78ECDAFC-1AB6-4620-B01A-A76FC68695C9}
+		{9892ADE1-AC88-4CBF-A0B0-7DFCCE722EB2} = {5D01A368-D8FD-4B95-BEF4-35A2895EB66D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84EDF8D5-F532-48DA-96CF-B0539DEAA33D}
