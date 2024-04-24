@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Micro.Respository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private readonly MicroContext _context;
+        protected readonly MicroContext _context;
         public BaseRepository(MicroContext context)
         {
             _context = context;
@@ -31,10 +32,20 @@ namespace Micro.Respository
         {
             return await _context.Set<T>().Where(where).ToListAsync();
         }
+        public IEnumerable<T> GetByConditionWithCompile(Expression<Func<T, bool>> where) 
+        {
+            Func<MicroContext, IEnumerable<T>> compileQuery =EF.CompileQuery((MicroContext context) =>
+          context.Set<T>().Where(where))!;
+          return  compileQuery(_context).ToList();
+        }
 
         public async Task<T> GetByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
+        }
+        public async Task<T> FirstOrDefualt(Expression<Func<T,bool>> where) 
+        {
+            return await _context.Set<T>().FirstOrDefaultAsync(where);
         }
 
         public async Task<bool> UpdateAsync(T entity)

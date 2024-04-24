@@ -4,6 +4,6 @@ namespace Micro.Respository
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-
+        
     }
 }

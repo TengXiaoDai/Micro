@@ -4,6 +4,7 @@ using Micro.Respository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Micro.Respository.Migrations
 {
     [DbContext(typeof(MicroContext))]
-    partial class MicroContextModelSnapshot : ModelSnapshot
+    [Migration("20240423100320_add_Order")]
+    partial class add_Order
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,15 +60,14 @@ namespace Micro.Respository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Version")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion");
+                    b.Property<long?>("OrderId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("micro_Product", (string)null);
                 });
@@ -113,6 +114,18 @@ namespace Micro.Respository.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Micro.Models.Product", b =>
+                {
+                    b.HasOne("Micro.Models.Order", null)
+                        .WithMany("Products")
+                        .HasForeignKey("OrderId");
+                });
+
+            modelBuilder.Entity("Micro.Models.Order", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,20 +1,29 @@
-﻿using DotNetCore.CAP;
+﻿using Autofac.Extras.DynamicProxy;
+using DotNetCore.CAP;
+using Micro.Models;
 using Micro.Respository;
+using Micro.User.Middleware;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RuPeng.HystrixCore;
 
 namespace Micro.User.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Intercept(typeof(AuthInterceptor))]
     public class HomeController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
+        private readonly IProductRepository _productRepository;
         private readonly ICapPublisher _capPublisher;
-        public HomeController(IUserRepository userRepository, ICapPublisher capPublisher)
+        private readonly IOrderRepository _orderRepository;
+        public HomeController(IUserRepository userRepository, ICapPublisher capPublisher, IOrderRepository orderRepository, IProductRepository productRepository)
         {
             _userRepository = userRepository;
             _capPublisher = capPublisher;
+            _orderRepository = orderRepository;
+            _productRepository = productRepository;
         }
         /// <summary>
         /// 查询用户信息
@@ -23,8 +32,56 @@ namespace Micro.User.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            Console.WriteLine("获取了------------------------------------");
             return new JsonResult(await _userRepository.GetByIdAsync(1));
         }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Compile()
+        {
+            var ret = _userRepository.GetByConditionWithCompile(a => a.Id == 1);
+            return new JsonResult(ret);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Lazy()
+        {
+            var ret = await _orderRepository.FirstOrDefualt(a => a.Id == 1);
+            return new JsonResult(ret);
+        }
+        [HttpGet]
+        public async Task<ActionResult> InStack()
+        {
+            try
+            {
+                Product product = await _productRepository.FirstOrDefualt(a => a.Id == 1);
+                if (product != null && product.InStock > 0)
+                {
+                    product.InStock -= 1;
+                    await _productRepository.UpdateAsync(product);
+                    return new JsonResult(new
+                    {
+                        msg = $"恭喜您,抢到商品了!当前还剩库存{product.InStock}",
+                        code = 200
+                    });
+                }
+                else
+                    return new JsonResult(new
+                    {
+                        msg = $"抱歉,已经没有库存了,当前还剩库存{product.InStock}",
+                        code = 200
+                    });
+            }
+            catch (DbUpdateConcurrencyException err) 
+            {
+                return new JsonResult(new
+                {
+                    msg = $"抱歉,已经没有库存了",
+                    code = 200
+                });
+            }
+        }
+
         /// <summary>
         /// 添加用户
         /// </summary>

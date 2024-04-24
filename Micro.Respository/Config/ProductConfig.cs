@@ -15,6 +15,7 @@ namespace Micro.Respository.Config
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.ToTable("micro_Product");
+            builder.Property(a => a.Version).IsRowVersion();//乐观锁，防止库存卖超
             builder.HasIndex(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
         }

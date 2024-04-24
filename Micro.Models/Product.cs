@@ -17,5 +17,9 @@ namespace Micro.Models
         /// 库存
         /// </summary>
         public long InStock { get; set; }
+        /// <summary>
+        /// 版本号
+        /// </summary>
+        public byte[] Version { get; set; }
     }
 }
